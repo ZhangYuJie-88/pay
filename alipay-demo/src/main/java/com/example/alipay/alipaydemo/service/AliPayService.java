@@ -118,21 +118,23 @@ public class AliPayService {
 
     /**
      * 支付宝退款
-     *
-     * @param orderId
+     * @param outTradeNo
+     * @param tradeNo
+     * @param amount
      * @param servletRequest
      * @return
+     * @throws Exception
      */
-    public Result aliRefund(Long orderId, HttpServletRequest servletRequest) throws Exception {
+    public Result aliRefund(String outTradeNo,String tradeNo,Integer amount, HttpServletRequest servletRequest) throws Exception {
         // 创建退款请求builder，设置请求参数
         AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
         Map<String, String> params = new TreeMap<>();
         // 必须 商户订单号
-        params.put("out_trade_no", "支付宝商户订单号");
+        params.put("out_trade_no", outTradeNo);
         // 必须 支付宝交易号
-        params.put("trade_no", "支付宝交易号");
+        params.put("trade_no", tradeNo);
         // 必须 退款金额
-        params.put("refund_amount", "退款金额");
+        params.put("refund_amount", amount.toString());
         // 可选 代表 退款的原因说明
         params.put("refund_reason", "退款的原因说明");
         // 可选 标识一次退款请求，同一笔交易多次退款需要保证唯一（就是out_request_no在2次退款一笔交易时，要不一样），如需部分退款，则此参数必传
