@@ -1,0 +1,14 @@
+app:
+  pay:
+    ali:
+      app_id: xx
+      mch_id: xx
+      server_url: https://openapi.alipaydev.com/gateway.do
+      alipay_private_key: xx
+      alipay_public_key: xx
+      charset: UTF-8
+      sign_type: RSA2
+      format: json
+      notify_url: http://localhost:8080/api/pay/ali/notify
+      return_url: http://localhost:8080/api
+      refund_url: http://localhost:8080/api
