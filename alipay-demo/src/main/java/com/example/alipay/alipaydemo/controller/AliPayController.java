@@ -53,15 +53,16 @@ public class AliPayController {
 
     /**
      * 支付宝App支付退款
-     *
-     * @param orderId
+     * @param outTradeNo
+     * @param tradeNo
+     * @param amount
      * @param request
      * @return
      * @throws Exception
      */
     @GetMapping("/refund")
-    public Result appRefund(Long orderId, HttpServletRequest request) throws Exception {
-        return aliPayService.aliRefund(orderId, request);
+    public Result appRefund(String outTradeNo,String tradeNo,Integer amount,  HttpServletRequest request) throws Exception {
+        return aliPayService.aliRefund(outTradeNo,tradeNo,amount, request);
     }
 
 
